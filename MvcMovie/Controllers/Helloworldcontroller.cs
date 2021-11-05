@@ -1,6 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
-
+using Microsoft.Extensions.Logging;
+using MvcMovie.Models;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 namespace MvcMovie.Controllers
 {
     public class HelloWorldController : Controller
@@ -8,17 +14,19 @@ namespace MvcMovie.Controllers
         // 
         // GET: /HelloWorld/
 
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
         // 
         // GET: /HelloWorld/Welcome/ 
 
-        public string Welcome()
+        public IActionResult Welcome(string name,int numtimes = 1)
         {
-            return "This is the Welcome action method...";
+            ViewData["Message"] = "Hello" + name;
+            ViewData["Numtimes"] =  numtimes;
+            return View();
         }
     }
 }
