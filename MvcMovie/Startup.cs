@@ -10,11 +10,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
-
+//using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 namespace MvcMovie
 {
     public class Startup
     {
+     
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,10 +26,14 @@ namespace MvcMovie
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-
-            services.AddDbContext<MvcMovieContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+            string mySqlConnectionStr = Configuration.GetConnectionString("MySQL");
+            services.AddDbContext<MvcMovieContext>(options => options.UseMySql(mySqlConnectionStr, MySqlServerVersion.AutoDetect(mySqlConnectionStr)));
+            services.AddControllers();
+          services.AddControllersWithViews();
+            /*
+            //services.AddDbContext<MvcMovieContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+         */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

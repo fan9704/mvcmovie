@@ -304,3 +304,5 @@ D:\MvcMovie\MvcMovie\obj\Debug\net5.0\MvcMovie.RazorTargetAssemblyInfo.cs
 D:\MvcMovie\MvcMovie\obj\Debug\net5.0\MvcMovie.Views.pdb
 D:\MvcMovie\MvcMovie\obj\Debug\net5.0\MvcMovie.csproj.CopyComplete
 D:\MvcMovie\MvcMovie\obj\Debug\net5.0\MvcMovie.genruntimeconfig.cache
+D:\MvcMovie\MvcMovie\bin\Debug\net5.0\MySqlConnector.dll
+D:\MvcMovie\MvcMovie\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
